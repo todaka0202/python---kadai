@@ -1,6 +1,12 @@
 import tkinter as tk
 import random
 
+#リストからランダムで要素を表示する
+#入力を受け取る
+#選択した要素と入力を比較する
+#正解だったらまたランダムで要素を抽出
+#不正解だったら「不正解」と表示する
+
 # ↓↓↓ お約束のコード ↓↓↓
 window = tk.Tk()
 window.title("GUI App")
