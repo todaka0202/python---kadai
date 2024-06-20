@@ -15,22 +15,20 @@ bg_color = "#333333"  # ダークグレー
 fg_color = "#FFFFFF"  # 白
 window.configure(bg=bg_color)
 # ↑↑↑ お約束のコード ↑↑↑
-str_list=["東京特許許可局局長","生麦生米生卵",
-          "かえるぴょこぴょこみぴょこぴょこあわせてぴょこぴょこむぴょこぴょこ",
-          "隣の客はよく柿食う客だ"]
+str_list=["python","tkinter","javascript","toukyou"]
 
 question = random.choice(str_list)
 
-label1 = tk.Label(window, text=question, bg=bg_color, fg=fg_color)
-label1.pack(pady=10)
-
 def button_action():  # 関数の定義 ※ボタンが押されたときの動き
     user_input = entry1.get()  # 入力値を取得
+    
     if user_input == question:
         question = random.choice(str_list)
     else:
         label2.config(text=f"違います！")  # 画面に出力
 
+label1 = tk.Label(window, text=question, bg=bg_color, fg=fg_color)
+label1.pack(pady=10)
 
 # 入力フィールドの作成
 entry1 = tk.Entry(window, bg=fg_color, fg=bg_color)
