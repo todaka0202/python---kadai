@@ -9,32 +9,130 @@ fg_color = "#FFFFFF"  # 白
 window.configure(bg=bg_color)
 # ↑↑↑ お約束のコード ↑↑↑
 
+# frame =  tk.Frame(window,padx=195,)
+# frame.grid()
 
-def button_action1():  # 関数の定義 ※ボタンが押されたときの動き
-    # user_input = entry1.get()  # 入力値を取得
-    label1.config(text=f"こんにちは")  # 画面に出力
+frame1 = tk.Frame(height=100, width=500, pady=5, padx=5)
+frame1.place(x=200,y=150)
+
+frame2 = tk.Frame(height=100, width=500)
+frame2.place(x=255,y=100)
+
+list =[[1,2,3],
+       [4,5,6],
+       [7,8,9]]
+
+#ボタン
+
+def resetbutton_action():
+    # 1行目
+    list[0][0] = 1
+    list[0][1] = 2
+    list[0][2] = 3
+    # 2行目
+    list[1][0] = 4
+    list[1][1] = 5
+    list[1][2] = 6
+    # 3行目
+    list[2][0] = 7
+    list[2][1] = 8 
+    list[2][2] = 9
+
+    # 1行目
+    button1.config(text="　")
+    button2.config(text="　")
+    button3.config(text="　")
+    # 2行目
+    button4.config(text="　")
+    button5.config(text="　")
+    button6.config(text="　")
+    # 3行目
+    button7.config(text="　")
+    button8.config(text="　")
+    button9.config(text="　")
+
+    label1.config(text="")
+
+
+def button_action1():  
+    button1.config(text="◯")
+    list[0][0] = "◯"
+    if list[0][0] == "◯" and list[0][1] == "◯" and list[0][2] == "◯":
+        label1.config(text="あなたの勝ちです！")
+
+def button_action2():  
+    button2.config(text="◯")
+    list[0][1] = "◯"
+    if list[0][0] == "◯" and list[0][1] == "◯" and list[0][2] == "◯":
+        label1.config(text="あなたの勝ちです！")
+
+def button_action3():  
+    button3.config(text="◯")
+    list[0][2] = "◯"
+    if list[0][0] == "◯" and list[0][1] == "◯" and list[0][2] == "◯":
+        label1.config(text="あなたの勝ちです！")
+
+def button_action4():  
+    button4.config(text="◯")
+
+def button_action5():  
+    button5.config(text="◯")
+
+def button_action6():  
+    button6.config(text="◯")
+
+def button_action7():  
+    button7.config(text="◯")
+
+def button_action8():  
+    button8.config(text="◯")
+
+def button_action9():  
+    button9.config(text="◯")
+
 
 
 # 入力フィールドの作成
 
 # ボタンの作成
-resetbutton = tk.Button(window, text="リセット", command=button_action1)
-resetbutton.grid(column=2,row=5,padx=0)
+resetbutton = tk.Button(frame2, text="リセット", command=resetbutton_action)
+resetbutton.grid(column=3,row=3,padx=0)
 
-button1 = tk.Button(window, text="", command=button_action1)
-button1.grid(column=1,row=6,pady=10,padx=10)
+button1 = tk.Button(frame1, text="　", command=button_action1)
+button1.grid(row=4, column=1, padx=5,pady=5)
 
-button2 = tk.Button(window, text="", command=button_action1)
-button2.grid(column=2,row=6,pady=10,padx=10)
+button2 = tk.Button(frame1, text="　", command=button_action2)
+button2.grid(row=4, column=3, padx=5,pady=5)
 
-button3 = tk.Button(window, text="", command=button_action1)
-button3.grid(column=3,row=6,pady=10,padx=10)
+button3 = tk.Button(frame1, text="　", command=button_action3)
+button3.grid(row=4, column=5, padx=5,pady=5)
+
+button4 = tk.Button(frame1, text="　", command=button_action4)
+button4.grid(row=5, column=1, padx=5,pady=5)
+
+button5 = tk.Button(frame1, text="　", command=button_action5)
+button5.grid(row=5, column=3, padx=5,pady=5)
+
+button6 = tk.Button(frame1,text="　", command=button_action6)
+button6.grid(row=5, column=5, padx=5,pady=5)
+
+button7 = tk.Button(frame1, text="　", command=button_action7)
+button7.grid(row=7, column=1, padx=5,pady=5)
+
+button8 = tk.Button(frame1, text="　", command=button_action8)
+button8.grid(row=7, column=3, padx=5,pady=5)
+
+button9 = tk.Button(frame1, text="　", command=button_action9)
+button9.grid(row=7, column=5, padx=5,pady=5)
 
 
 
 # 出力ラベルの作成
 label1 = tk.Label(window, text="", bg=bg_color, fg=fg_color)
-label1.grid(column=2,row=2,pady=20)
+label1.grid(column=3,row=1,pady=15)
+
+label2 = tk.Label(window, text="あなたは◯です", bg=bg_color, fg=fg_color)
+label2.grid(column=3,row=2,pady=5,padx=255)
 
 # ↓↓↓ お約束のコード ↓↓↓
 window.mainloop()

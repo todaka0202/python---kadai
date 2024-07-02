@@ -23,10 +23,19 @@ def button_action():  # 関数の定義 ※ボタンが押されたときの動�
     
     if label1.cget("text") == user_input:
         label1.config(text=random.choice(str_list))
+        entry1.delete(0, tk.END)
+        label2.config(text="")
+    else:
+        label2.config(text="×")
+
          # 画面に出力
 
 label1 = tk.Label(window, text=random.choices(str_list), bg=bg_color, fg=fg_color)
 label1.pack(pady=10)
+
+label2 = tk.Label(window, text="", bg=bg_color, fg=fg_color)
+label2.pack(pady=10)
+
 
 # 入力フィールドの作成
 entry1 = tk.Entry(window, bg=fg_color, fg=bg_color)
