@@ -95,8 +95,6 @@ def button_action3():
         label1.config(text=victorymessage)
     
 
-
-
 # 横2行目
 def button_action4():  
     button4.config(text="◯")
@@ -127,7 +125,6 @@ def button_action5():
     elif list[0][2] == "◯" and list[1][1] == "◯" and list[2][0] == "◯":
         label1.config(text=victorymessage)
     
-
 def button_action6():  
     button6.config(text="◯")
     list[1][2] = "◯"
