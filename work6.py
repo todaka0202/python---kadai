@@ -11,6 +11,7 @@ window.configure(bg=bg_color)
 
 # frame =  tk.Frame(window,padx=195,)
 # frame.grid()
+#forで繰り返しlist内を検索
 
 frame1 = tk.Frame(height=100, width=500, pady=5, padx=5)
 frame1.place(x=200,y=150)
