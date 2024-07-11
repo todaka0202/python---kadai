@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.font as font
 import random
 
 # メインウィンドウを作成
@@ -9,6 +10,8 @@ bg_color = "#333333"  # ダークグレー
 fg_color = "#FFFFFF"  # 白
 window.configure(bg=bg_color)
 
+myfont = font.Font(window, family="Papyru", size=30)
+
 # フレームを作成し、メインウィンドウに配置
 frame = tk.Frame(window, bg=bg_color)
 frame.pack(expand=True, anchor='n')
@@ -17,9 +20,6 @@ frame.pack(expand=True, anchor='n')
 board = [["","",""],
          ["","",""],
          ["","",""]]
-
-# リーチ
-
         
         
 # 勝利条件をチェックする関数
@@ -43,17 +43,6 @@ def check_winner():
 # リーチかどうかを検索する方法↓
     # 8箇所(縦3,横3,斜め2)を検索して×または◯が二つ埋まっているところがあるかを調べる
 # もしリーチになっていたらそこに積極的に埋める
-
-
-# def aaaa():
-#     # reach = board[0][0],[1][0],[2][0]
-#     reach2 = [win for win in  if win == "◯" or win == "×"]
-#     if 2 == len(reach2):
-#         label1.config(text=len(reach2))
-
-
-    
-
 
 def computer_move():
     emptycell = []
@@ -163,6 +152,7 @@ def button_action9():
             computer_move()
 
 buttons=[]
+
 button1 = tk.Button(frame, text="　", command=button_action1)
 button1.grid(row=2, column=0, padx=10, pady=10)
 buttons.append(button1)
@@ -200,7 +190,7 @@ button9.grid(row=4, column=2, padx=10, pady=10)
 buttons.append(button9)
 
 # ラベルを作成し、3列にまたがるように配置
-label2 = tk.Label(frame, text="あなたは◯です", font=("Arial", 24), bg=bg_color, fg=fg_color)
+label2 = tk.Label(frame, text="あなたは◯です", font=myfont, bg=bg_color, fg=fg_color)
 label2.grid(row=0, column=0, columnspan=3, pady=10)
 
 # リセットボタンを作成し、label2の下に配置
@@ -208,8 +198,7 @@ reset_button = tk.Button(frame, text="リセット", command=lambda: reset_game(
 reset_button.grid(row=1, column=0, columnspan=3, pady=10)
 
 # 状況表示ラベルを配置
-label1 = tk.Label(frame, text=board[0][1]
-, bg=bg_color, fg=fg_color)
+label1 = tk.Label(frame, text="", bg=bg_color, fg=fg_color)
 label1.grid(row=5, column=0, columnspan=3, pady=10)
 
 # 先攻、後攻を決める
@@ -234,6 +223,7 @@ def reset_game():
     label1.config(text="")
     firstmove()
 
+reset_button.bind = ("<Return>",reset_game())
 
 # メインウィンドウのループ
 window.mainloop()

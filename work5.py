@@ -28,7 +28,7 @@ def button_action():  # 関数の定義 ※ボタンが押されたときの動�
     else:
         label2.config(text="×")
 
-         # 画面に出力
+# 画面に出力
 
 label1 = tk.Label(window, text=random.choices(str_list), bg=bg_color, fg=fg_color)
 label1.pack(pady=10)

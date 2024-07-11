@@ -4,9 +4,10 @@ import tkinter as tk
 window = tk.Tk()
 window.title("GUI App")
 window.geometry("600x400")
-bg_color = "#333333"  # ダークグレー
+# bg_color = "#333333"  # ダークグレー
 fg_color = "#FFFFFF"  # 白
-window.configure(bg=bg_color)
+bgr = tk.PhotoImage(file="stone_00082.jpg")
+window.configure(bg=bgr)
 # ↑↑↑ お約束のコード ↑↑↑
 
 # frame =  tk.Frame(window,padx=195,)
