@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as font
 import random
+import pygame
 
 # メインウィンドウを作成
 window = tk.Tk()
@@ -10,7 +11,7 @@ bg_color = "#333333"  # ダークグレー
 fg_color = "#FFFFFF"  # 白
 window.configure(bg=bg_color)
 
-myfont = font.Font(window, family="Papyru", size=30)
+myfont = font.Font(window, family="HGP創英角ﾎﾟｯﾌﾟ体", size=15) 
 
 # フレームを作成し、メインウィンドウに配置
 frame = tk.Frame(window, bg=bg_color)
@@ -20,8 +21,20 @@ frame.pack(expand=True, anchor='n')
 board = [["","",""],
          ["","",""],
          ["","",""]]
+
+pygame.init()
+pygame.mixer.init()
+se = pygame.mixer.Sound("ファンファーレ.mp3")
+lose = pygame.mixer.Sound("【効果音】全滅【ドラクエ】.mp3")
+def a():
+    se.play()
+def b():
+    lose.play()
+def sound_reset():
+    pygame.mixer.stop()
+
         
-        
+
 # 勝利条件をチェックする関数
 def check_winner():
     # 行をチェック
@@ -57,9 +70,8 @@ def computer_move():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
-
-
-
+            b()
+            
 
 def button_action1():
     if board[0][0] == "":
@@ -68,6 +80,7 @@ def button_action1():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -78,6 +91,7 @@ def button_action2():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -88,6 +102,7 @@ def button_action3():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -98,6 +113,7 @@ def button_action4():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -108,6 +124,7 @@ def button_action5():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -118,6 +135,7 @@ def button_action6():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -128,6 +146,7 @@ def button_action7():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -138,6 +157,7 @@ def button_action8():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
 
@@ -148,8 +168,10 @@ def button_action9():
         winner = check_winner()
         if winner:
             label1.config(text=f"{winner}の勝ちです！", font=("Arial", 24))
+            a()
         else:
             computer_move()
+ 
 
 buttons=[]
 
@@ -198,8 +220,11 @@ reset_button = tk.Button(frame, text="リセット", command=lambda: reset_game(
 reset_button.grid(row=1, column=0, columnspan=3, pady=10)
 
 # 状況表示ラベルを配置
-label1 = tk.Label(frame, text="", bg=bg_color, fg=fg_color)
+label1 = tk.Label(frame, text=" ", bg=bg_color, fg=fg_color)
 label1.grid(row=5, column=0, columnspan=3, pady=10)
+
+label3 = tk.Label(frame, text=" <enter> を押してリセット", bg=bg_color, fg=fg_color)
+label3.grid(row=6, column=0, columnspan=3, pady=10)
 
 # 先攻、後攻を決める
 player =  ["×","◯"]
@@ -213,6 +238,11 @@ firstplayer = random.choice(player)
 if "×" == firstplayer:
     computer_move()
 
+# win_sound = check_winner
+# if label1.cget("text") == "◯の勝ちです！" or label1.cget("text") == "×の勝ちです！":
+#     if win_sound:
+#         a()
+
 
 # ゲームをリセットする関数
 def reset_game():
@@ -220,10 +250,12 @@ def reset_game():
     board = [["" for _ in range(3)] for _ in range(3)]
     for button in [button1, button2, button3, button4, button5, button6, button7, button8, button9]:
         button.config(text="　", state="normal")
-    label1.config(text="")
+    label1.config(text=" ")
     firstmove()
+    sound_reset()
+    
 
-reset_button.bind = ("<Return>",reset_game())
+window.bind("<Return>",lambda event:reset_game())
 
 # メインウィンドウのループ
 window.mainloop()
