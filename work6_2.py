@@ -24,7 +24,7 @@ board = [["","",""],
 
 pygame.init()
 pygame.mixer.init()
-se = pygame.mixer.Sound("ファンファーレ.mp3")
+se = pygame.mixer.Sound("download_de0782649f.mp3")
 lose = pygame.mixer.Sound("【効果音】全滅【ドラクエ】.mp3")
 def a():
     se.play()
