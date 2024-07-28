@@ -211,7 +211,6 @@ button9.grid(row=7, column=5, padx=5,pady=5)
 
 
 
-# 出力ラベルの作成
 label1 = tk.Label(window, text="", bg=bg_color, fg=fg_color)
 label1.grid(column=3,row=1,pady=15)
 
